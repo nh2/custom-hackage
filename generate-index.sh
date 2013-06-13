@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# This script looks at the packages/archive/ directory,
+# extracts all cabal files from the packages and puts them
+# into 00-index.tar.gz.
+
+
 # Remove old index file
 rm -f 00-index.tar.gz
 
