@@ -1,4 +1,27 @@
 custom-hackage
 ==============
 
-Script that allows to run your own hackage with select packages/versions that you drop in
+A small script that allows to run your own hackage repository with select packages/versions that you drop in.
+
+Use it if you just want to have your own repo for `cabal install` - no fancy web interface provided.
+
+
+Usage
+-----
+
+Drop your packages under `packages/archive/[package]/[version]/[package]-[version].tar.gz`, for example `packages/archive/bytestring/0.10.2.0/bytestring-0.10.2.0.tar.gz`.
+
+Then run `./generate-index.sh`.
+
+Done.
+
+
+Use your repo with cabal
+------------------------
+
+You can now serve this directory using any HTTP server, or the minimal `./webserver.sh`.
+
+To tell cabal to get packages from your custom hackage, update `~/.cabal/config` to
+
+```
+remote-repo: my-custom-hackage:http://[SERVER_ADDRESS]/packages/archive
