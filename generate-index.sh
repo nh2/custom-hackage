@@ -12,9 +12,11 @@ rm -f 00-index.tar.gz
 # (the structure 00-index.tar.gz has to have)
 mkdir -p tmp
 
-for p in `find packages -name "*.tar.gz"`; do
-  version=$(basename $(dirname $p))
-  name=$(basename $(dirname $(dirname $p)))
+for p in `ls -1 package/*.tar.gz`; do
+  # Extract "name-version.tar.gz" by using the last '-'.
+  # Write them out separated by a space to split them with read.
+  nameVersion=$(sed -E -e "s/(.*)-(.*).tar.gz/\1 \2/" <<< $(basename $p))
+  read name version <<< $nameVersion
   echo $name $version
   mkdir -p tmp/$name/$version
   tar xaf $p -C tmp --wildcards `basename $p .tar.gz`/$name.cabal -O > tmp/$name/$version/$name.cabal

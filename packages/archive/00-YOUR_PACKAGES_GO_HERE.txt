@@ -1,5 +1,0 @@
-Drop the packages you want your custom Hackage to serve into this directory.
-
-The naming scheme is: [package]/[version]/[package]-[version].tar.gz
-
-Example:              bytestring/0.10.2.0/bytestring-0.10.2.0.tar.gz

@@ -9,7 +9,7 @@ Use it if you just want to have your own repo for `cabal install` - no fancy web
 Usage
 -----
 
-Drop your packages under `packages/archive/[package]/[version]/[package]-[version].tar.gz`, for example `packages/archive/bytestring/0.10.2.0/bytestring-0.10.2.0.tar.gz`.
+Drop your packages tars into `package/`, for example `package/bytestring-0.10.2.0.tar.gz`.
 
 Then run `./generate-index.sh`.
 
@@ -24,4 +24,5 @@ You can now serve this directory using any HTTP server, or the minimal `./webser
 To tell cabal to get packages from your custom hackage, update `~/.cabal/config` to
 
 ```
-remote-repo: my-custom-hackage:http://[SERVER_ADDRESS]/packages/archive
+remote-repo: my-custom-hackage:http://[SERVER_ADDRESS]/
+```
